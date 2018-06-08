@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Text3_learn_more">"شروط وسياسات مقدمي الخدمات "</string>
+    <string name="Text2_learn_more">"سياسات لـ  "</string>
+    <string name = "eu_consent_text"> مستخدمنا العزيز! \n\n نحن نستخدم Google Admob لعرض الإعلانات. تدعم الإعلانات عملنا وتمكن من تطوير هذا التطبيق. تماشياً مع اللائحة الأوروبية الجديدة لحماية البيانات (GDPR) ، نحتاج إلى موافقتك على عرض الإعلانات المصممة خصيصًا لك. </string>
+         <string name = "eu_consent_question"> هل يمكن استخدام بياناتك لعرض الإعلانات المخصصة لك؟ </string>
+         <string name = "learn_more"> معرفة كيفية استخدام بياناتك </string>
+         <string name = "google_partners"> Google وشركائها: </string>
+         <string name = "eu_consent_yes"> نعم ، استمر في إظهار الإعلانات ذات الصلة </string>
+         <string name = "eu_consent_no"> لا ، اعرض الإعلانات غير ذات صلة </string>
+         <string name = "eu_consent_change_setting"> يمكنك تغيير هذا الإعداد في أي وقت في نافذة \ "حول \". </string>
+         <string name = "thank_you"> شكرًا لك! </string>
+         <string name = "privacy_policy"> سياسات الخصوصية </string>
+         <string name = "dialog_close"> إغلاق </string>
+         <string name = "pref_switch_title_pub"> الإعلانات ذات الصلة </string>
+</resources>
