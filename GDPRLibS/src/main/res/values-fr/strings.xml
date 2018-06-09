@@ -3,15 +3,15 @@
     <!-- EU GDPR Consent texts -->
     <string name="eu_consent_text">Cher utilisateur! \n\nNous utilisons Google Admob pour diffuser des annonces. Les annonces soutiennent notre travail et finance le développeur de cette application. Conformément au nouveau règlement européen sur la protection des données (GDPR), nous avons besoin de votre consentement pour diffuser des annonces adaptées à vos besoins.</string>
     <string name="eu_consent_question">Vos données peuvent-elles être utilisées pour diffuser des annonces adaptées à vos besoins?</string>
-    <string name="learn_more">Découvrez comment vos données sont utilisées</string>
-    <string name="google_partners">Google et ses partenaires:</string>
+    <string name="eu_learn_more">Découvrez comment vos données sont utilisées</string>
+    <string name="eu_google_partners">Google et ses partenaires:</string>
     <string name="eu_consent_yes">Oui, voir des annonces pertinentes</string>
     <string name="eu_consent_no">Non, voir des annonces non pertinentes</string>
     <string name="eu_consent_change_setting">Vous pouvez modifier ces paramètres dans \"à Propos\" menu.</string>
-    <string name="thank_you">Merci!</string>
-    <string name="privacy_policy" >"Conditions d'utilisation"</string>
-    <string name="Text2_learn_more" >Conditions de </string>
-    <string name="Text3_learn_more" >"Conditions d'utilisation des régiesr"</string>
-    <string name="dialog_close" >Fermer</string>
-    <string name="pref_switch_title_pub">Annonces pertinentes</string>
+    <string name="eu_thank_you">Merci!</string>
+    <string name="eu_privacy_policy" >"Conditions d'utilisation"</string>
+    <string name="eu_Text2_learn_more" >Conditions de </string>
+    <string name="eu_Text3_learn_more" >"Conditions d'utilisation des régiesr"</string>
+    <string name="eu_dialog_close" >Fermer</string>
+    <string name="eu_pref_switch_title_pub">"Annonces personnalisé pour vous"</string>
 </resources>

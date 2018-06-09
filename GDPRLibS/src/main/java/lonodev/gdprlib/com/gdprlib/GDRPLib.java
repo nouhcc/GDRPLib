@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -74,8 +75,8 @@ public class GDRPLib {
         }
 
         public GDRPLib build() {
-            GDRPLib GDRPLib = new GDRPLib(this.context, this.inflater,this.consent_callback, this.privacyURL,this.publisherId ,this.RImage);
-            return GDRPLib;
+            GDRPLib GDRPlib = new GDRPLib(this.context, this.inflater,this.consent_callback, this.privacyURL,this.publisherId ,this.RImage);
+            return GDRPlib;
         }
     }
 
@@ -167,7 +168,10 @@ public class GDRPLib {
         if (showCancel) alertDialog.setPositiveButton(R.string.dialog_close, null);
 
         mEuDialog = alertDialog.create();
-        mEuDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        try {
+            mEuDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }catch (NullPointerException e){
+        }
         mEuDialog.show();
 
         ImageView eu_consent_Logo = eu_consent_dialog.findViewById(R.id.imageView3);
@@ -181,7 +185,7 @@ public class GDRPLib {
             @Override
             public void onClick(View v) {
                 mEuDialog.cancel();
-                Toast.makeText( context,context.getString(R.string.thank_you),Toast.LENGTH_SHORT);
+                Toast.makeText( context,context.getString(R.string.thank_you),Toast.LENGTH_SHORT).show();
 
                 ConsentInformation.getInstance(context).setConsentStatus(ConsentStatus.PERSONALIZED);
                 mShowNonPersonalizedAdRequests = false;
@@ -193,7 +197,7 @@ public class GDRPLib {
             @Override
             public void onClick(View v) {
                 mEuDialog.cancel();
-                Toast.makeText( context,context.getString(R.string.thank_you), Toast.LENGTH_SHORT);
+                Toast.makeText( context,context.getString(R.string.thank_you), Toast.LENGTH_SHORT).show();
                 ConsentInformation.getInstance(context).setConsentStatus(ConsentStatus.NON_PERSONALIZED);
                 mShowNonPersonalizedAdRequests = true;
                 setYourPerfernce(context ,mShowNonPersonalizedAdRequests);
@@ -202,6 +206,7 @@ public class GDRPLib {
         });
 
         TextView tv_eu_learn_more = eu_consent_dialog.findViewById(R.id.tv_eu_learn_more);
+        tv_eu_learn_more.setPaintFlags(tv_eu_learn_more.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
         tv_eu_learn_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -223,9 +228,10 @@ public class GDRPLib {
         params.setMargins(40, 20, 40, 20);
 
         TextView tv_my_privacy_policy = new TextView(context);
-        String link = "<a href="+PRIVACY_URL+">"+context.getResources().getString(R.string.app_name)+"</a>";
+        String link = context.getResources().getString(R.string.eu_Text2_learn_more)+" <a href="+PRIVACY_URL+">"+context.getResources().getString(R.string.app_name)+"</a>  <br/>"+context.getResources().getString(R.string.eu_Text3_learn_more)+" :";
         tv_my_privacy_policy.setText(Html.fromHtml(link));
         tv_my_privacy_policy.setMovementMethod(LinkMovementMethod.getInstance());
+        tv_my_privacy_policy.setTextColor(context.getResources().getColor(R.color.black));
         ll.addView(tv_my_privacy_policy, params);
 
         TextView tv_google_partners = new TextView(context);
