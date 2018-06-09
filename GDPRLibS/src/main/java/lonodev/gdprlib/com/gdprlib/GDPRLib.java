@@ -57,6 +57,7 @@ public class GDPRLib {
         }
         public Builder addCallBack(Consent_callback consent_callback) {
             this.consent_callback = consent_callback;
+
             return this;
         }
 
