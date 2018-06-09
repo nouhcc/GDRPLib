@@ -5,5 +5,5 @@ package lonodev.gdprlib.com.gdprlib;
  */
 
 public interface Consent_callback {
-    void NextActivity();
+    void OnDialogClose();
 }

@@ -37,7 +37,7 @@ import java.util.List;
  * Created by nouhcc on 04/06/2018.
  */
 
-public class GDRPLib {
+public class GDPRLib {
 
     public static class Builder {
         private Context context;
@@ -74,8 +74,8 @@ public class GDRPLib {
             return this;
         }
 
-        public GDRPLib build() {
-            GDRPLib GDRPlib = new GDRPLib(this.context, this.inflater,this.consent_callback, this.privacyURL,this.publisherId ,this.RImage);
+        public GDPRLib build() {
+            GDPRLib GDRPlib = new GDPRLib(this.context, this.inflater,this.consent_callback, this.privacyURL,this.publisherId ,this.RImage);
             return GDRPlib;
         }
     }
@@ -94,7 +94,7 @@ public class GDRPLib {
     public static boolean isFromEU = false;
     public int RImage =0;
 
-    public GDRPLib(Context context,LayoutInflater inflater,Consent_callback consent_callback,String PRIVACY_URL,String publisherId,int DrowableId){
+    public GDPRLib(Context context,LayoutInflater inflater,Consent_callback consent_callback,String PRIVACY_URL,String publisherId,int DrowableId){
         this.context     = context;
         this.inflater    = inflater;
         this.callback    = consent_callback;
@@ -119,7 +119,7 @@ public class GDRPLib {
             public void onConsentInfoUpdated(ConsentStatus consentStatus) {
                 Log.d("nouh","User's consent status successfully updated: " +consentStatus);
 
-                if (ConsentInformation.getInstance(GDRPLib.context).isRequestLocationInEeaOrUnknown()){
+                if (ConsentInformation.getInstance(GDPRLib.context).isRequestLocationInEeaOrUnknown()){
                     Log.d("nouh","User is from EU");
                     // If the returned ConsentStatus is UNKNOWN, collect user's consent.
                     if (consentStatus == ConsentStatus.UNKNOWN) {
@@ -128,19 +128,19 @@ public class GDRPLib {
                     }
                     else if (consentStatus == ConsentStatus.NON_PERSONALIZED) {
                         isFromEU = true;
-                        callback.NextActivity();
+                        callback.OnDialogClose();
                     }
                     else if (consentStatus == ConsentStatus.PERSONALIZED) {
                         isFromEU = true;
-                        callback.NextActivity();
+                        callback.OnDialogClose();
                     }
 
 
                 } else {
                     Log.d("nouh","User is NOT from EU");
                     // we don't have to do anything
-                    setYourPerfernce(GDRPLib.context ,false);
-                    callback.NextActivity();
+                    setYourPerfernce(GDPRLib.context ,false);
+                    callback.OnDialogClose();
                     isFromEU = false;
 
                 }
@@ -150,8 +150,8 @@ public class GDRPLib {
             @Override
             public void onFailedToUpdateConsentInfo(String errorDescription) {
                 Log.d("nouh","User's consent status failed to update: " +errorDescription);
-                setYourPerfernce(GDRPLib.context ,false);
-                callback.NextActivity();
+                setYourPerfernce(GDPRLib.context ,false);
+                callback.OnDialogClose();
             }
         });
     }
@@ -190,7 +190,7 @@ public class GDRPLib {
                 ConsentInformation.getInstance(context).setConsentStatus(ConsentStatus.PERSONALIZED);
                 mShowNonPersonalizedAdRequests = false;
                 setYourPerfernce(context ,mShowNonPersonalizedAdRequests);
-                callback.NextActivity();
+                callback.OnDialogClose();
             }
         });
         btn_eu_consent_no.setOnClickListener(new View.OnClickListener() {
@@ -201,7 +201,7 @@ public class GDRPLib {
                 ConsentInformation.getInstance(context).setConsentStatus(ConsentStatus.NON_PERSONALIZED);
                 mShowNonPersonalizedAdRequests = true;
                 setYourPerfernce(context ,mShowNonPersonalizedAdRequests);
-                callback.NextActivity();
+                callback.OnDialogClose();
             }
         });
 
