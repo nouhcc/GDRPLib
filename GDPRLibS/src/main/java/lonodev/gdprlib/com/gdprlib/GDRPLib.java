@@ -165,7 +165,7 @@ public class GDRPLib {
 
         alertDialog.setView(eu_consent_dialog).setCancelable(false);
 
-        if (showCancel) alertDialog.setPositiveButton(R.string.dialog_close, null);
+        if (showCancel) alertDialog.setPositiveButton(R.string.eu_dialog_close, null);
 
         mEuDialog = alertDialog.create();
         try {
@@ -185,7 +185,7 @@ public class GDRPLib {
             @Override
             public void onClick(View v) {
                 mEuDialog.cancel();
-                Toast.makeText( context,context.getString(R.string.thank_you),Toast.LENGTH_SHORT).show();
+                Toast.makeText( context,context.getString(R.string.eu_thank_you),Toast.LENGTH_SHORT).show();
 
                 ConsentInformation.getInstance(context).setConsentStatus(ConsentStatus.PERSONALIZED);
                 mShowNonPersonalizedAdRequests = false;
@@ -197,7 +197,7 @@ public class GDRPLib {
             @Override
             public void onClick(View v) {
                 mEuDialog.cancel();
-                Toast.makeText( context,context.getString(R.string.thank_you), Toast.LENGTH_SHORT).show();
+                Toast.makeText( context,context.getString(R.string.eu_thank_you), Toast.LENGTH_SHORT).show();
                 ConsentInformation.getInstance(context).setConsentStatus(ConsentStatus.NON_PERSONALIZED);
                 mShowNonPersonalizedAdRequests = true;
                 setYourPerfernce(context ,mShowNonPersonalizedAdRequests);
@@ -235,7 +235,7 @@ public class GDRPLib {
         ll.addView(tv_my_privacy_policy, params);
 
         TextView tv_google_partners = new TextView(context);
-        tv_google_partners.setText(R.string.google_partners);
+        tv_google_partners.setText(R.string.eu_google_partners);
         tv_google_partners.setPadding(40,40,40,20);
         ll.addView(tv_google_partners);
 
@@ -250,9 +250,9 @@ public class GDRPLib {
         }
         sv.addView(ll);
 
-        builder.setTitle(R.string.privacy_policy)
+        builder.setTitle(R.string.eu_privacy_policy)
                 .setView(sv)
-                .setPositiveButton(R.string.dialog_close, null);
+                .setPositiveButton(R.string.eu_dialog_close, null);
 
         final AlertDialog createDialog = builder.create();
         createDialog.show();
