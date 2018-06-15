@@ -246,8 +246,8 @@ public class GDPRLib {
             link = "<a href="+adProvider.getPrivacyPolicyUrlString()+">"+adProvider.getName()+"</a>";
             TextView tv_adprovider = new TextView(context);
             tv_adprovider.setText(Html.fromHtml(link));
-            tv_adprovider.setTextColor(context.getResources().getColor(R.color.lonodev_colorProviders));
             tv_adprovider.setMovementMethod(LinkMovementMethod.getInstance());
+            tv_adprovider.setTextColor(context.getResources().getColor(R.color.lonodev_colorProviders));
             ll.addView(tv_adprovider, params);
         }
         sv.addView(ll);
